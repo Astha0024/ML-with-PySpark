@@ -1,0 +1,17 @@
+Spark -> cluster computing framework for data analytics that can handle big data. It is written in Scala. It uses in-memory computation.
+
+Spark is Lazy -> It doesn't execute transformations until some action is encountered or cache is encountered.
+
+PySpark -> Python API for Spark.
+
+How is PySpark different from Python?
+    - It runs on a cluster so it can work on distributed dataframes which Python can't do.
+    - It does not use indexing like Python
+    - Error messages are less interpretable
+    - All objects in PySpark are immutable (can't be changed)
+    - Dataframe and independent variables must be vectorized before you pass it into an ML model
+    
+* If you have a function that iterates over a column in a dataframe, then you have to register your function as a USER DEFINED FUNCTION (UDF). Python functions cannot iterate over distributed dataframes.
+* But if you have a function that iterates over a list or a for loop that passes the whole dataframe, then we can use python functions as is.
+
+Difference between show and collect -> After manipulation calls, we can show or collect results. Show provides a preview of data. Collect is used if we want to do additional processing. Collect is computationally more expensive than show.
